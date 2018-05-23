@@ -1,9 +1,9 @@
-# ne-xt
-
+# NeXT
+_(working on progress)_
 
 ## Installation
 ```bash
-$ npm i --save ne-xt
+$ npm i --save nerdpitch-next
 ```
 
 ## Usage
@@ -20,12 +20,5 @@ $ npm i --save ne-xt
 * `npm run test:watch` - Same as `npm test` but watches files for changes.
 * `npm run test:cov` - Generates a test coverage report.
 
-## Distribution
-Execute one of the following commands
-```bash
-npm version patch -m "Bump to %s"
-npm version minor -m "Bump to %s"
-npm version major -m "Bump to %s"
-```
 ## License
-MIT
+BSD 3-Clause

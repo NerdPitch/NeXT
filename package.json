@@ -1,16 +1,16 @@
 {
   "version": "0.0.1",
-  "name": "ne-xt",
+  "name": "nerdpitch-next",
   "description": "",
   "author": "NerdPitch Team <dev@nerdpitch.io>",
   "license": "MIT",
-  "homepage": "https://github.com/NerdPitch/ne-xt",
+  "homepage": "https://github.com/NerdPitch/NeXT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/NerdPitch/ne-xt.git"
+    "url": "https://github.com/NerdPitch/NeXT.git"
   },
   "bugs": {
-    "url": "https://github.com/NerdPitch/ne-xt/issues"
+    "url": "https://github.com/NerdPitch/NeXT/issues"
   },
   "main": "index.js",
   "scripts": {

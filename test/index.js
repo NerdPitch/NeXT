@@ -1,8 +1,8 @@
 import { expect } from 'chai'
-import neXt from '../src'
+import NeXT from '../src'
 
-describe('neXt', function () {
+describe('NeXT', function () {
   it('should exist', function () {
-    expect(neXt).to.exist
+    expect(NeXT).to.exist
   })
 })

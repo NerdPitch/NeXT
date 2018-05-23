@@ -1,3 +1,3 @@
-export default function neXt() {
+export default function NeXT() {
 
 }
