@@ -8,7 +8,7 @@ $ npm i --save nerdpitch-next
 
 ## Usage
 ```javascript
-
+// help us make a documentation sooner
 ```
 
 ## Scripts
