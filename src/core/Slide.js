@@ -8,7 +8,9 @@ class Slide{
      * 
      */
 
-    constructor(steps){
+    constructor(steps, transform){
+
+        this.transform = transform;
 
         this.steps = [];
 
