@@ -6,6 +6,10 @@ class Transform{
             duration: duration || 0
         }
 
+        // Type of the transformation
+
+        this.type = 'alternative';
+
     }
 
     in(){

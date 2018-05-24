@@ -299,13 +299,13 @@ class NeXT {
 
             // Moving forward
             if (step > 0)
-                if (typeof this.slides[this.currSlide].steps[step - 1].transform.out !== 'undefined')
+            if (this.slides[this.currSlide].steps[step + 1].transform.type == 'alternative')
                     this.slides[this.currSlide].steps[step - 1].transform.out();
 
         } else {
 
             if (step < this.sides[this.currSlide].steps.length - 1)
-                if (typeof this.slides[this.currSlide].steps[step + 1].transform.out !== 'undefined')
+                if (this.slides[this.currSlide].steps[step + 1].transform.type == 'alternative')
                     this.slides[this.currSlide].steps[step + 1].transform.out();
 
         }
