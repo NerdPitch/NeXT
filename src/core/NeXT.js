@@ -50,6 +50,12 @@ class NeXT {
 
     }
 
+    /**
+     * 
+     * Navigates to the previous step or slide(Based on the conditions) 
+     * 
+     */
+
     prev() {
 
         if(this.currStep > -1){
@@ -63,6 +69,12 @@ class NeXT {
         }
 
     }
+
+    /**
+     * 
+     * Navigates to the next slide
+     * 
+     */
 
     nextSlide() {
 
@@ -78,6 +90,12 @@ class NeXT {
 
     }
 
+    /**
+     * 
+     * Navigates tot he previous slide
+     * 
+     */
+
     prevSlide() {
 
         if (this.currSlide > 0) {
@@ -92,17 +110,39 @@ class NeXT {
 
     }
 
+    /**
+     * 
+     * Navigates to the first slide
+     * 
+     */
+
     goToFirstSlide() {
 
         this.goTo(0, -1);
 
     }
 
+    /**
+     * 
+     * Navigates to the last step
+     * 
+     */
+
     goToLastSlide() {
 
         this.goTo(this.slides.length - 1, -1);
 
     }
+
+    /**
+     * 
+     * Navigates to the given slide and step
+     * 
+     * @param {Number} slide - The slide number
+     * 
+     * @param {Number} step - The step number
+     * 
+     */
 
     goTo(slide, step) {
 
@@ -128,6 +168,12 @@ class NeXT {
 
     }
 
+    /**
+     * 
+     * Navigates to the next step
+     * 
+     */
+
     nextStep() {
 
         if(this.slides[this.currSlide].steps.length - 1 > this.currStep){
@@ -137,6 +183,12 @@ class NeXT {
         }
 
     }
+
+    /**
+     * 
+     * Navigates to the previous step
+     * 
+     */
 
     prevStep() {
 
@@ -148,17 +200,42 @@ class NeXT {
 
     }
 
+
+    /**
+     * 
+     * Returns the current slider number(0 - n)
+     * 
+     *@returns {Number}
+     * 
+     */
+
     get currSlide() {
 
         return this.state.slide;
 
     }
 
+    /**
+     * 
+     * Returns the current step number(-1 - n)
+     * 
+     *@returns {Number}
+     * 
+     */
+
     get currStep() {
 
         return this.state.step;
 
     }
+
+    /**
+     * 
+     * Returns the current state
+     * 
+     *@returns {Object}
+     * 
+     */
 
     get currState() {
 
