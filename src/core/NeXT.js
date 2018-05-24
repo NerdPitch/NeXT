@@ -38,11 +38,11 @@ class NeXT {
 
     next() {
 
-        if(this.currStep < this.slides[this.currSlide].steps.length - 1){
+        if (this.currStep < this.slides[this.currSlide].steps.length - 1) {
 
             this.nextStep();
 
-        }else{
+        } else {
 
             this.nextSlide();
 
@@ -58,11 +58,11 @@ class NeXT {
 
     prev() {
 
-        if(this.currStep > -1){
+        if (this.currStep > -1) {
 
             this.prevStep();
 
-        }else{
+        } else {
 
             this.prevSlide();
 
@@ -146,25 +146,53 @@ class NeXT {
 
     goTo(slide, step) {
 
-        if(this.slides.length - 1 >= slide && slide >= 0){
+        if (this.slides.length - 1 >= slide && slide >= 0) {
+
+            if (this.currSlide != slide) {
+                if (this.currSlide < slide) {
+
+                    // We are going to the next slide
+
+                    this.emitSlideTransform(slide, 1);
+
+
+                } else {
+
+                    // We are going to the previous slide
+
+                    this.emitSlideTransform(slide, -1);
+
+                }
+            }
 
             this.state.slide = slide;
 
-            // slide transform should happen in here
+            if (this.slides[this.currSlide].steps.length - 1 >= step && step >= -1) {
 
-            if(this.slides[this.currSlide].steps.length - 1 >= step && step >= -1){
-                
-                // step transform should happen in here
+                if (this.currStep < step) {
+
+                    // We are going to the next step
+
+                    this.emitStepTransform(step, 1);
+
+
+                } else {
+
+                    // We are going to the previous slide
+
+                    this.emitStepTransform(step, -1);
+
+                }
 
                 this.state.step = step;
 
-            }else{
+            } else {
 
                 throw new Error('Step number is out of range.');
 
             }
 
-        }else{
+        } else {
 
             throw new Error('Slide number is out of range.');
 
@@ -180,9 +208,9 @@ class NeXT {
 
     nextStep() {
 
-        if(this.slides[this.currSlide].steps.length - 1 > this.currStep){
+        if (this.slides[this.currSlide].steps.length - 1 > this.currStep) {
 
-            this.goTo(this.currSlide, this.currStep+ 1);
+            this.goTo(this.currSlide, this.currStep + 1);
 
         }
 
@@ -196,7 +224,7 @@ class NeXT {
 
     prevStep() {
 
-        if(this.currStep > -1){
+        if (this.currStep > -1) {
 
             this.goTo(this.currSlide, this.currStep - 1);
 
@@ -246,6 +274,69 @@ class NeXT {
         return {
             slide: this.currSlide,
             step: this.currStep
+        }
+
+    }
+
+    /**
+     * 
+     * Invoks the proper transform for the next and previous step
+     * 
+     * @param {Number} step - The target step
+     * 
+     * @param {Number} direction - 1 for forward, -1 for backward
+     * 
+     */
+
+    emitStepTransform(step, direction) {
+
+        if (step === -1)
+            return;
+
+        this.slides[this.currSlide].steps[step].transform.in();
+
+        if (direction === 1) {
+
+            // Moving forward
+            if (step > 0)
+                if (typeof this.slides[this.currSlide].steps[step - 1].transform.out !== 'undefined')
+                    this.slides[this.currSlide].steps[step - 1].transform.out();
+
+        } else {
+
+            if (step < this.sides[this.currSlide].steps.length - 1)
+                if (typeof this.slides[this.currSlide].steps[step + 1].transform.out !== 'undefined')
+                    this.slides[this.currSlide].steps[step + 1].transform.out();
+
+        }
+
+    }
+
+    /**
+     * 
+     * Invoks the proper transform for the next and previous slide
+     * 
+     * @param {Number} slide - The target slide
+     * 
+     * @param {Number} direction - 1 for forward, -1 for backward
+     * 
+     */
+
+    emitSlideTransform(slide, direction) {
+
+        this.slides[slide].transform.in();
+
+        if (direction === 1) {
+
+            // Moving forward
+            if (slide > 0)
+                this.slides[slide - 1].transform.out();
+
+        } else {
+
+            if (slide < this.slides.length - 1)
+                this.slides[slide + 1].transform.out();
+
         }
 
     }
