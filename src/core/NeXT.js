@@ -146,12 +146,16 @@ class NeXT {
 
     goTo(slide, step) {
 
-        if(this.slides.length >= slide && slide >= 1){
+        if(this.slides.length - 1 >= slide && slide >= 0){
 
             this.state.slide = slide;
 
-            if(this.slides[this.currSlide].steps.length >= step && step >= -1){
+            // slide transform should happen in here
+
+            if(this.slides[this.currSlide].steps.length - 1 >= step && step >= -1){
                 
+                // step transform should happen in here
+
                 this.state.step = step;
 
             }else{
