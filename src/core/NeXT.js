@@ -4,12 +4,12 @@ const Step = require('./Step');
 class NeXT {
 
     static Slide = Slide;
+    
     static Step = Step;
 
     /**
-     * 
+     * @constructor
      * @param {Object} config - The config Object
-     * 
      */
 
     constructor(slides, config) {
@@ -34,9 +34,7 @@ class NeXT {
     }
 
     /**
-     * 
      * Navigates to the next step or slide(Based on the conditions)
-     * 
      */
 
     next() {
@@ -54,9 +52,7 @@ class NeXT {
     }
 
     /**
-     * 
      * Navigates to the previous step or slide(Based on the conditions) 
-     * 
      */
 
     prev() {
@@ -74,9 +70,7 @@ class NeXT {
     }
 
     /**
-     * 
      * Navigates to the next slide
-     * 
      */
 
     nextSlide() {
@@ -94,9 +88,7 @@ class NeXT {
     }
 
     /**
-     * 
      * Navigates tot he previous slide
-     * 
      */
 
     prevSlide() {
@@ -114,9 +106,7 @@ class NeXT {
     }
 
     /**
-     * 
      * Navigates to the first slide
-     * 
      */
 
     goToFirstSlide() {
@@ -126,9 +116,7 @@ class NeXT {
     }
 
     /**
-     * 
      * Navigates to the last step
-     * 
      */
 
     goToLastSlide() {
@@ -138,13 +126,9 @@ class NeXT {
     }
 
     /**
-     * 
      * Navigates to the given slide and step
-     * 
      * @param {Number} slide - The slide number
-     * 
      * @param {Number} step - The step number
-     * 
      */
 
     goTo(slide, step) {
@@ -208,9 +192,7 @@ class NeXT {
     }
 
     /**
-     * 
      * Navigates to the next step
-     * 
      */
 
     nextStep() {
@@ -224,9 +206,7 @@ class NeXT {
     }
 
     /**
-     * 
      * Navigates to the previous step
-     * 
      */
 
     prevStep() {
@@ -241,11 +221,8 @@ class NeXT {
 
 
     /**
-     * 
      * Returns the current slider number(0 - n)
-     * 
-     *@returns {Number}
-     * 
+     * @returns {Number}
      */
 
     get currSlide() {
@@ -255,11 +232,8 @@ class NeXT {
     }
 
     /**
-     * 
      * Returns the current step number(-1 - n)
-     * 
-     *@returns {Number}
-     * 
+     * @returns {Number}
      */
 
     get currStep() {
@@ -269,11 +243,8 @@ class NeXT {
     }
 
     /**
-     * 
      * Returns the current state
-     * 
-     *@returns {Object}
-     * 
+     * @returns {Object} 
      */
 
     get currState() {
@@ -286,13 +257,9 @@ class NeXT {
     }
 
     /**
-     * 
      * Invoks the proper transform for the next and previous step
-     * 
      * @param {Number} step - The target step
-     * 
      * @param {Number} direction - 1 for forward, -1 for backward
-     * 
      */
 
     emitStepTransform(step, direction) {
@@ -320,13 +287,9 @@ class NeXT {
     }
 
     /**
-     * 
      * Invoks the proper transform for the next and previous slide
-     * 
      * @param {Number} slide - The target slide
-     * 
      * @param {Number} direction - 1 for forward, -1 for backward
-     * 
      */
 
     emitSlideTransform(slide, direction) {
