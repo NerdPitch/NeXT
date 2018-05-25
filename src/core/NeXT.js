@@ -189,6 +189,10 @@ class NeXT {
 
                 this.state.step = step;
 
+                // Let's trigger the onChange method
+
+                this.onChange(this.currState);
+
             } else {
 
                 throw new Error('Step number is out of range.');
@@ -341,6 +345,17 @@ class NeXT {
                 this.slides[slide + 1].transform.out();
 
         }
+
+    }
+
+    /**
+     * The event that will be triggered when slide or step changes
+     * @param {Object} state - The current state
+     */
+
+    onChange(state){
+
+        throw new Error('onChange should be overriden');
 
     }
 
