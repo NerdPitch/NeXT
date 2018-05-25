@@ -3,6 +3,9 @@ const Step = require('./Step');
 
 class NeXT {
 
+    static Slide = Slide;
+    static Step = Step;
+
     /**
      * 
      * @param {Object} config - The config Object
